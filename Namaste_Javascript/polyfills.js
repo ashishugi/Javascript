@@ -37,3 +37,22 @@ console.log(ar.myReduce(function(acc,curr){
   acc+=curr;
   return acc;
 },0))
+ /////////////////////////////////////////// filter
+var ar = [1,2,3,4];
+
+console.log(ar.filter((x)=>{
+  return x%2 ==0 ;
+}))
+
+Array.prototype.myFilter = function(call){
+  let out=[];
+  for(let i=0;i<this.length;i++){
+    if(call(this[i])){
+      out.push(this[i]);
+    }
+  }
+  return out;
+}
+console.log(ar.myFilter((x)=>{
+  return x%2!=0;
+}))
